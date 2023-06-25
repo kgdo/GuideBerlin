@@ -58,11 +58,11 @@
         <a
           class="card-link btn btn-warning"
           href="/campgrounds/<%=campground._id%>/edit"
-          >Edit Harroo</a
+          >Edit Site</a
         >
         <p>
           <a class="card-link btn btn-success mt-3" href="/campgrounds"
-            >Back to All Harroos</a
+            >Back to All Sites</a
           >
         </p>
         <form
@@ -74,24 +74,24 @@
         </form>
       </div>
       <% }%>
-      <div class="card-footer text-muted mt-3">Harroo do you do?</div>
+      <div class="card-footer text-muted mt-3">let us learn so as not to repeat</div>
     </div>
   </div>
 
   <div class="col-6">
     <div id='map' ></div>
 
-  <div class="col-6">
+  <div class="col-6" style="width: 100%;">
     <% if(currentUser) { %>
-    <h2>leave a review about the Harroo</h2>
+    <h5>Add historical information about the site</h5>
     <form
       action="/campgrounds/<%=campground._id%>/reviews"
       method="POST"
       class="mb-3 validated-form"
       novalidate
     >
-      <fieldset class="starability-basic">
-        <legend>Give it a rate, Buddy :o)</legend>
+      <!-- <fieldset class="starability-basic">
+        <legend>Give it a rating</legend>
         <input
           type="radio"
           id="no-rate"
@@ -111,9 +111,9 @@
         <label for="first-rate4" title="Very good">4 stars</label>
         <input type="radio" id="first-rate5" name="review[rating]" value="5" />
         <label for="first-rate5" title="Amazing">5 stars</label>
-      </fieldset>
+      </fieldset> -->
       <div class="mb-3">
-        <label for="body">Review</label>
+        <label for="body">Info</label>
         <textarea
           class="form-control"
           name="review[body]"
@@ -130,14 +130,14 @@
 
     <div class="mb-3 card">
       <div class="card-body">
-        <h5 class="card-title">Rating: <%= review.rating %></h5>
+        <!-- <h5 class="card-title">Rating: <%= review.rating %></h5>
         <p class="starability-result" data-rating="<%= review.rating %>">
           Rated:<%= review.rating %> stars
-        </p>
+        </p> -->
         <h6 class="card-subtitle mb-2 text-muted">
           by <%= review.author.username %>
         </h6>
-        <p class="card-text">Review: <%= review.body %></p>
+        <p class="card-text">Information submittted: <%= review.body %></p>
         <% if( currentUser && review.author.equals(currentUser._id)) {%>
         <form
           action="/campgrounds/<%=campground._id %>/reviews/<%=review._id%>?_method=DELETE "
