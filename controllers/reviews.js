@@ -12,6 +12,21 @@ module.exports.createReview = async (req, res) => {
   res.redirect(`/campgrounds/${campground._id}`);
 };
 
+module.exports.renderEditForm = async (req, res) => {
+  const review = await Review.findById(req.params.id);
+  const { id } = req.params;
+ 
+  if (!review) {
+    req.flash("error", "Sorry :o( not found");
+    res.redirect(`/review/${review._id}`);
+  }
+
+
+  res.render("campgrounds/edit", { campground });
+};
+
+
+
 module.exports.deleteReview = async (req, res) => {
   const { id, reviewId } = req.params;
   await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
