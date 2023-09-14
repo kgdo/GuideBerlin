@@ -1,10 +1,10 @@
 <% layout("layouts/boilerplate")%>
 
 <div class="row">
-  <h1 class="text-center">Edit Site</h1>
+  <h1 class="text-center">Edit sites</h1>
   <div class="col-md-6 offset-md-3">
     <form
-      action="/campgrounds/<%= campground._id%>?_method=PUT"
+      action="/sites/<%= site._id%>?_method=PUT"
       method="POST"
       novalidate
       class="validated-form"
@@ -16,8 +16,8 @@
           class="form-control"
           type="text"
           id="title"
-          name="campground[title]"
-          value="<%= campground.title%>"
+          name="site[title]"
+          value="<%= site.title%>"
           required
         />
       </div>
@@ -27,9 +27,20 @@
           class="form-control"
           type="text"
           id="location"
-          name="campground[location]"
-          value="<%= campground.location%>"
+          name="site[location]"
+          value="<%= site.location%>"
           required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="wikilink">Link To Wikipedia Page</label>
+        <input
+          class="form-control"
+          type="text"
+          id="wikilink"
+          name="site[wikilink]"
+          value="<%= site.wikilink%>"
+         
         />
       </div>
       <div class="mb-3">
@@ -50,10 +61,10 @@
           class="form-control"
           type="text"
           id="description"
-          name="campground[description]"
+          name="site[description]"
           required
         >
- <%= campground.description %></textarea
+ <%= site.description %></textarea
         >
       </div>
       <!-- <div class="mb-3">
@@ -67,14 +78,14 @@
             placeholder="0.00"
             aria-label="price"
             aria-describedby="price-label"
-            name="campground[price]"
-            value="<%= campground.price%>"
+            name="site[price]"
+            value="<%= site.price%>"
             required
           />
         </div> -->
       </div>
       <div class="mb-3">
-        <% campground.images.forEach(function(img, i) { %>
+        <% site.images.forEach(function(img, i) { %>
         <img src="<%=img.thumbnail %> " class="img-thumbnail" alt="" />
         <div class="form-check-inline">
           <input
@@ -92,6 +103,6 @@
         <button class="btn btn-info">Update Site</button>
       </div>
     </form>
-    <a href="/campgrounds/<%=campground._id%>">Back to Site</a>
+    <a href="/sites/<%=site._id%>">Back to All Sites</a>
   </div>
 </div>

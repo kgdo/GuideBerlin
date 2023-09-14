@@ -1,21 +1,24 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/campgrounds">guide🇩🇪berlin</a>
+    <a class="navbar-brand" href="/sites">Guide🇩🇪Berlin</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/campgrounds">Sites</a>
-        <a class="nav-link" href="/campgrounds/new">Add A New Site</a>
+        <a class="nav-link" href="/sites">Sites</a>
+        <a class="nav-link" href="/sites/new">Add A New Site</a>
       </div>
       <div class="navbar-nav ml-auto">
         <% if(!currentUser) {%>
         <a class="nav-link" href="/login">LogIn</a>
         <a class="nav-link" href="/register">Register</a>
         <% } else {%>
+        <!-- <a class="nav-link" href="sites/maps">Maps</a>
+        <a class="nav-link" href="/rulers">Rulers</a> -->
         <a class="nav-link" href="/logout">LogOut</a>
+        
         <% } %>
       </div>
     </div>

@@ -1,6 +1,6 @@
-const { campgroundSchema, reviewSchema } = require("./schemas.js");
+const { siteSchema, reviewSchema } = require("./schemas.js");
 const ExpressError = require("./utilities/ExpressError");
-const Campground = require("./models/campground");
+const Site = require("./models/site");
 const Review = require("./models/review");
 
 module.exports.isLoggedIn = (req, res, next) => {
@@ -14,8 +14,8 @@ module.exports.isLoggedIn = (req, res, next) => {
   }
   next();
 };
-module.exports.validateCampground = (req, res, next) => {
-  const { error } = campgroundSchema.validate(req.body);
+module.exports.validateSite = (req, res, next) => {
+  const { error } = siteSchema.validate(req.body);
   if (error) {
     const msg = error.details.map((el) => el.message).join(",");
     throw new ExpressError(msg, 400);
@@ -26,10 +26,10 @@ module.exports.validateCampground = (req, res, next) => {
 
 module.exports.isAuthor = async (req, res, next) => {
   const { id } = req.params;
-  const campground = await Campground.findById(id);
-  if (!campground.author.equals(req.user._id)) {
+  const site = await Site.findById(id);
+  if (!site.author.equals(req.user._id)) {
     req.flash("error", "Sorry Buddy:0( not permissable");
-    return res.redirect(`/campgrounds/${campground._id}`);
+    return res.redirect(`/sites/${site._id}`);
   }
   next();
 };
@@ -39,7 +39,7 @@ module.exports.isReviewAuthor = async (req, res, next) => {
   const review = await Review.findById(reviewId);
   if (!review.author.equals(req.user._id)) {
     req.flash("error", "You do not have permission to do that!");
-    return res.redirect(`/campgrounds/${id}`);
+    return res.redirect(`/sites/${id}`);
   }
   next();
 };

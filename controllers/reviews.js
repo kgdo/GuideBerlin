@@ -1,15 +1,15 @@
-const Campground = require("../models/campground");
+const Site = require("../models/site");
 const Review = require("../models/review");
 
 module.exports.createReview = async (req, res) => {
-  const campground = await Campground.findById(req.params.id);
+  const site = await Site.findById(req.params.id);
   const review = new Review(req.body.review);
   review.author = req.user._id;
-  campground.reviews.push(review);
+  site.reviews.push(review);
   await review.save();
-  await campground.save();
-  req.flash("success", "thank you for adding info to the site");
-  res.redirect(`/campgrounds/${campground._id}`);
+  await site.save();
+  req.flash("success", "thank you for adding info to the sites");
+  res.redirect(`/sites/${site._id}`);
 };
 
 module.exports.renderEditForm = async (req, res) => {
@@ -22,15 +22,15 @@ module.exports.renderEditForm = async (req, res) => {
   }
 
 
-  res.render("campgrounds/edit", { campground });
+  res.render("sites/edit", { site });
 };
 
 
 
 module.exports.deleteReview = async (req, res) => {
   const { id, reviewId } = req.params;
-  await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+  await Site.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
   await Review.findByIdAndDelete(reviewId);
   req.flash("success", " It is gone, bye bye ");
-  res.redirect(`/campgrounds/${id}`);
+  res.redirect(`/sites/${id}`);
 };

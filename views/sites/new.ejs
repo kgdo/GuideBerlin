@@ -1,9 +1,9 @@
 <% layout("layouts/boilerplate")%>
 <div class="row">
-  <h1 class="text-center">New Site</h1>
+  <h1 class="text-center">New sites</h1>
   <div class="col-6 offset-md-3">
     <form
-      action="/campgrounds"
+      action="/sites"
       method="POST"
       novalidate
       class="validated-form"
@@ -15,7 +15,7 @@
           class="form-control"
           type="text"
           id="title"
-          name="campground[title]"
+          name="site[title]"
           required
         />
         <div class="valid-feedback">Hey Buddy;o) Looks Good!</div>
@@ -26,9 +26,21 @@
           class="form-control"
           type="text"
           id="location"
-          name="campground[location]"
+          name="site[location]"
           required
         />
+        <div class="mb-3">
+          <label class="form-label" for="wikilink">Link To Wikipedia Page</label>
+          <input
+            class="form-control"
+            type="text"
+            id="wikilink"
+            name="site[wikilink]"
+            placeholder="optional"
+            
+           
+          />
+        </div>
         <div class="valid-feedback">Looks Good!</div>
       </div>
       <!-- <div class="mb-3"<input type="file" name="image" id="image" multiple /> -->
@@ -50,7 +62,7 @@
             placeholder="0.00"
             aria-label="price"
             aria-describedby="price-label"
-            name="campground[price]"
+            name="site[price]"
             required
           /> 
           <div class="valid-feedback">Hey Buddy, Looks Good!</div>
@@ -62,7 +74,7 @@
           class="form-control"
           type="text"
           id="description"
-          name="campground[description]"
+          name="site[description]"
           required
         ></textarea>
         <div class="valid-feedback">Hey Buddy, Great Description!</div>
@@ -83,6 +95,6 @@
         <button class="btn btn-success">Add Site</button>
       </div>
     </form>
-    <a href="/campgrounds"> Sites</a>
+    <a href="/sites"> sites</a>
   </div>
 </div>

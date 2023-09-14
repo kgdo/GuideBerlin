@@ -21,7 +21,7 @@
                 <h3 class="float-md-left mb-0">Guide🇩🇪Berlin</h3>
                 <nav class="nav nav-masthead justify-content-center float-md-right">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="/campgrounds">Sites</a>
+                    <a class="nav-link" href="/sites">Sites</a>
                     <% if(!currentUser) { %>
                     <a class="nav-link" href="/login">Login</a>
                     <a class="nav-link" href="/register">Register</a>
@@ -31,16 +31,70 @@
                 </nav>
             </div>
         </header>
-        <main class="px-3">
+<!--         
+        <% if(!currentUser) { %>
+        <div class="container justify-content-center align-items-center mt-5 mb-5">
+          <div class="row">
+            <div class="col-md-6 offset-md-3 padding-3"> 
+              <div class="card shadow">
+                <img src="https://res.cloudinary.com/kendo/image/upload/v1693291131/guideberlin/cro9lwk5h54sudzz3j0m.jpg" alt="" class="card-img-top"/>
+                <div class="card-body">
+                  <h5 class="card-title">Register</h5>
+                  <form action="/register" method="POST" class="validated-form" novalidate>
+                    <div class="mb-3">
+                      <label class="form-label" for="username">Username</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="username"
+                        name="username"
+                        autofocus
+                        required
+                      />
+                      <div class="valid-feedback">Hey Buddy;o) Looks Good!</div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="email">Email</label>
+                      <input class="form-control" type="text" id="email" name="email" required />
+                      <div class="valid-feedback">Hey Buddy;o) Looks Good!</div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="password">Password</label>
+                      <input
+                        class="form-control"
+                        type="password "
+                        id="password"
+                        name="password"
+                        required
+                      />
+                      <div class="valid-feedback">Hey Buddy;o) Looks Good!</div>
+                    </div>
+                    <button class="btn btn-success btn-block">Register</button>
+                    <p>OR</p>
+                  </form>
+                  <form action="/login" >
+                  <button class="btn btn-success btn-primary" href="/login">Log In</button>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <main class="px-3"> <% } %>  
+           -->
+         
+        <p class="lead">  <br><br>
+            Register, log-in and become a part of the tour or just browse:</p>
+      
+        <a href="/sites" class="btn btn-lg btn-secondary font-weight-bold border-white bg-white">View
+            sites</a>
            
-            <p class="lead">  <br> Discover Berlin history<br>
-                Feel free to register, log in and become a part of the tour. </p>
-            <a href="/campgrounds" class="btn btn-lg btn-secondary font-weight-bold border-white bg-white">View
-                Sites</a>
         </main>
 
         <footer class="mt-auto text-white-50">
-            <p>&copy; KD-2022 </p>
+          <p class="lead" style="font-size: small;"> 
+            Disclaimer: All images were found from open sources online and have been credited when possible. This is intended as a website to help people interested in exploring Berlin discover images to bring back the past. And for users to share interesting stories they may know about the site. It is for historical education puposes only. If you would like something removed please send an email to hatch.records@gmail.com</p>
+            <p>KD-2022 </p>
         </footer>
 
 
